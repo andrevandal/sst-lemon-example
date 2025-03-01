@@ -1,0 +1,23 @@
+@theme {
+  --radius-smallest: --spacing(1); 
+  --radius-smaller: --spacing(2); 
+  --radius-small: --spacing(3); 
+  --radius-main: --spacing(4);
+  --radius-large: --spacing(6);
+  --radius-larger: --spacing(8); 
+
+  --spacing-none: --spacing(0);
+  --spacing-nudge: --spacing(0.5);
+  --spacing-smallest: --spacing(1);
+  --spacing-smaller: --spacing(2);
+  --spacing-small: --spacing(3);
+  --spacing-main: --spacing(4);
+  --spacing-large: --spacing(6);
+  --spacing-larger: --spacing(8);
+  --spacing-largest: --spacing(12);
+  --spacing-massive: --spacing(24);
+}
+
+@import "./fonts.css";
+@import "./colors.css";
+@import "./typography.css";

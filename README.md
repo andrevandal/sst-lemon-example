@@ -1,81 +1,62 @@
-# Monorepo Template
+# sst-lemon-example
 
-A template to create a monorepo SST v3 project. [Learn more](https://sst.dev/docs/set-up-a-monorepo).
+Este projeto é uma PoC (Proof of Concept) para o [SST](https://sst.dev/).
+Como contexto de exemplo de funcionalidades, vamos implementar um exemplo de como seria o Lemonpie dentro desta stack.
 
-## Get started
+Neste projeto usamos:
 
-1. Use this template to [create your own repo](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+- `node@22`
+- `pnpm@10`
+- `typescript@5`
+- `sst@3`
+- `vite`
+- `vitest`
+- `react`
+- `react-router`
+- `tailwindcss@4`
 
-2. Clone the new repo.
+O ambiente de produção é `AWS`.
 
-   ```bash
-   git clone <REPO_URL> MY_APP
-   cd MY_APP
-   ```
+## Conteúdo
 
-3. Rename the files in the project to the name of your app.
+### `apps/`
 
-   ```bash
-   npx replace-in-file '/monorepo-template/g' 'MY_APP' '**/*.*' --verbose
-   ```
+#### `lemonpie-docs`
 
-4. Deploy!
+O `apps/lemonpie-docs` é a aplicação da [Documentação do Lemonpie](https://lemonpie.lemon.energy/).
+Lembre-se de manter atualizado.
 
-   ```bash
-   npm install
-   npx sst deploy
-   ```
+#### `lemonpie-playgroud`
 
-5. Optionally, enable [_git push to deploy_](https://sst.dev/docs/console/#autodeploy).
+O `apps/lemonpie-playground` é um ambiente de desenvolvimento para testes e desenvolvimento de componentes do Lemonpie.
 
-## Usage
+### `packages/`
 
-This template uses [npm Workspaces](https://docs.npmjs.com/cli/v8/using-npm/workspaces). It has 3 packages to start with and you can add more it.
+#### `lemonpie-theme`
 
-1. `core/`
+O `packages/lemonpie-theme` é um pacote que exporta as configurações necessárias/padronizadas do Lemonpie usando o TailwindCSS v4.
 
-   This is for any shared code. It's defined as modules. For example, there's the `Example` module.
+#### `lemonpie-components`
 
-   ```ts
-   export module Example {
-     export function hello() {
-       return "Hello, world!";
-     }
-   }
-   ```
+O `packages/lemonpie-components` é um pacote que exporta os componentes mais "crus" do Lemonpie focando em reusabilidade, modularidade e composibilidade.
 
-   That you can use across other packages using.
+#### `lemonpie-utils`
 
-   ```ts
-   import { Example } from "@aws-monorepo/core/example";
+O `packages/lemonpie-utils` é um pacote que exporta utilidades gerais que podem ser úteis em qualquer projeto.
 
-   Example.hello();
-   ```
+## Comandos
 
-   We also have [Vitest](https://vitest.dev/) configured for testing this package with the `sst shell` CLI.
+- `pnpm install`
+- `pnpm exec sst dev --stage dev`
+- `pnpm exec sst deploy --stage dev`
 
-   ```bash
-   npm test
-   ```
+## SST com React Router v7
 
-2. `functions/`
+O suporte oficial ainda não é funcional.
 
-   This is for your Lambda functions and it uses the `core` package as a local dependency.
+https://github.com/sst/sst/pull/5289
+https://github.com/ironheart122/react-router-7-x-sst-template
 
-3. `scripts/`
+## Live example
 
-    This is for any scripts that you can run on your SST app using the `sst shell` CLI and [`tsx`](https://www.npmjs.com/package/tsx). For example, you can run the example script using:
-
-   ```bash
-   npm run shell src/example.ts
-   ```
-
-### Infrastructure
-
-The `infra/` directory allows you to logically split the infrastructure of your app into separate files. This can be helpful as your app grows.
-
-In the template, we have an `api.ts`, and `storage.ts`. These export the created resources. And are imported in the `sst.config.ts`.
-
----
-
-**Join our community** [Discord](https://sst.dev/discord) | [YouTube](https://www.youtube.com/c/sst-dev) | [X.com](https://x.com/SST_dev)
+https://d31zhtgno0gbge.cloudfront.net

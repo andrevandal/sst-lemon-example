@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+/* Base Lemonpie theme */
+@import "lemonpie-themes/base";
+
+/* Explicitly registering sources */
+/* https://tailwindcss.com/docs/detecting-classes-in-source-files#explicitly-registering-sources */
+@source "../node_modules/lemonpie-components";
+@source "../node_modules/lemonpie-themes";
+
+html,
+body {
+  @apply bg-white dark:bg-gray-950;
+
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+  }
+}
